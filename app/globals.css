@@ -56,4 +56,26 @@ h6 {
 }
 
 
+
+
+
+
+
+/* Buttons */
+.btn {
+  @apply py-4 px-8 cursor-pointer;
+}
+
+.btn-primary {
+  @apply bg-white text-[--dark-primary] hover:bg-[--light-gray] active:bg-white;
+}
+
+.btn-secondary {
+  @apply bg-[--light-gray] text-[--dark-primary] hover:bg-[--border-gray] active:bg-[--light-gray];
+}
+
+.btn-blue{
+  @apply bg-[--dark-primary] text-white hover:bg-[#1E193E] focus:bg-[--dark-primary]
+}
+
 @tailwind utilities;
