@@ -178,12 +178,12 @@ const About = () => {
                     <div className='space-y-[22px]'>
                         <p>Social links</p>
                         <div className='sm:flex gap-x-6 grid grid-cols-3 gap-y-6 '>
-                            <img src="/logo--linkedin.svg" alt="failed" />
-                            <img src="/logo--facebook.svg" alt="failed" />
-                            <img src="/logo--instagram.svg" alt="failed" />
-                            <img src="/logo--skype.svg" alt="failed" />
-                            <img src="/logo--twitter.svg" alt="failed" />
-                            <img src="/logo--pinterest.svg" alt="failed" />
+                            <Image src="/Logo--linkedin.svg" alt="failed" />
+                            <Image src="/Logo--facebook.svg" alt="failed" />
+                            <Image src="/Logo--instagram.svg" alt="failed" />
+                            <Image src="/Logo--skype.svg" alt="failed" />
+                            <Image src="/Logo--twitter.svg" alt="failed" />
+                            <Image src="/Logo--pinterest.svg" alt="failed" />
                         </div>
                     </div>
                     <div className='space-y-3  max-sm:mt-[50px]' >
@@ -227,14 +227,6 @@ const About = () => {
                 <p className='text-white mt-4 max-sm:text-center' >Copyright 2022 Avion LTD</p>
 
             </footer>
-
-
-
-
-
-
-
-
         </>
 
     )
