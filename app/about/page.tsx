@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
+import Link from 'next/link'
 
 const About = () => {
     return (
@@ -19,7 +20,7 @@ const About = () => {
             {/* Navbar */}
             <nav>
                 <div className="px-6 sm:px-7 py-5 flex justify-between items-center">
-                    <Image src="/avion-logo.png" alt="Image failed" width={65} height={30} />
+                    <Link href="/"> <Image src="/avion-logo.png" alt="Image failed" width={65} height={30} /></Link>
 
                     <div className='flex gap-x-12 items-center'>
                         <ul className="flex gap-x-8 text-[#726E8D] max-sm:hidden">
@@ -221,7 +222,7 @@ const About = () => {
                 </section>
 
                 <section>
-                    <div className='mt-[67px] border-b border-[--primary]'/>
+                    <div className='mt-[67px] border-b border-[--primary]' />
                 </section>
                 <p className='text-white mt-4 max-sm:text-center' >Copyright 2022 Avion LTD</p>
 

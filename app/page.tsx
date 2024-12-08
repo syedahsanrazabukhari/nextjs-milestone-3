@@ -3,8 +3,8 @@ import Hero from "./page-components/Hero";
 import Listing from "./page-components/Listing";
 import Listing2 from "./page-components/Listing2";
 import SignUp from "./page-components/SignUp";
-import { Navbar } from "@/components";
-
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -15,6 +15,7 @@ export default function Home() {
     <Listing/>
     <Listing2/>
     <SignUp/>
+    <Footer/>
     </>
   );
 }

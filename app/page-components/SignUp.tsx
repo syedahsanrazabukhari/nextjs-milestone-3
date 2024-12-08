@@ -30,7 +30,7 @@ const SignUp = () => {
             <div className='lg:w-[354px] h-[56px] w-[224px] bg-[#F9F9F9] '>
                 <input type="text" placeholder='your@email.com' className='bg-transparent h-full w-full pl-[32px] text-[#00000066] border-none' />
             </div>
-            <button className='font-normal h-[56px] text-[16px] leading-6 py-4 lg:px-8 px-5 flex gap-[10px] bg-[#2A254B] text-white'>Sign up</button>
+            <button type='submit' className='font-normal h-[56px] text-[16px] leading-6 py-4 lg:px-8 px-5 flex gap-[10px] bg-[#2A254B] text-white'>Sign up</button>
 
             </div>
            

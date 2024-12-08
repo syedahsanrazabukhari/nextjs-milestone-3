@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 
-export const Footer = () => {
+export default function Footer() {
     return (
         <footer className="bg-[--dark-primary] text-white pt-[40px] sm:pt-[58px] pb-6 px-6 sm:px-[82px]">
             <section className="grid grid-cols-2 gap-x-[96px] sm:flex sm:justify-between pb-12 border-b border-[--primary]">
@@ -13,7 +13,7 @@ export const Footer = () => {
                         <li>Best sellers</li>
                         <li>Recently viewed</li>
                         <li>Popular this week</li>
-                        <li>All products</li>
+                       <Link href="/products"> <li>All products</li></Link>
                     </ul>
                 </div>
 
@@ -30,7 +30,7 @@ export const Footer = () => {
                 </div>
 
                 <div className="space-y-3 max-sm:mt-10">
-                    <h5>Our company</h5>
+                   <Link href="/"> <h5>Our company</h5></Link>
 
                     <ul className="space-y-3">
                         <Link href="/about"><li>About us</li></Link>

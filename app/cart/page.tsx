@@ -1,5 +1,6 @@
-import { Footer, Navbar } from "@/components";
-
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import Link from "next/link";
 export default function Cart() {
     return (
         <>
@@ -88,7 +89,7 @@ export default function Cart() {
                             </div>
                             <p className="max-sm:whitespace-nowrap max-sm:w-fit ml-auto text-sm text-[--primary]">Taxes and shipping are calculated at checkout</p>
                         </div>
-                        <button type="submit" className="bg-[--dark-primary] max-sm:w-full block w-fit ml-auto text-white py-4 mt-8 sm:mt-4 px-[117px] sm:px-[48px]">Go to checkout</button>
+                        <Link href="/"><button type="submit" className="bg-[--dark-primary] max-sm:w-full block w-fit ml-auto text-white py-4 mt-8 sm:mt-4 px-[117px] sm:px-[48px]">Go to checkout</button></Link>
                     </div>
                 </section>
             </main>
