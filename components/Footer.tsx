@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export const Footer = () => {
     return (
@@ -32,7 +33,7 @@ export const Footer = () => {
                     <h5>Our company</h5>
 
                     <ul className="space-y-3">
-                        <li>About us</li>
+                        <Link href="/about"><li>About us</li></Link>
                         <li>Vacancies</li>
                         <li>Contact us</li>
                         <li>Privacy</li>

@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 
 export const Navbar = () => {
     return (
@@ -9,10 +10,10 @@ export const Navbar = () => {
                     <Image src="/nav-hamburger.svg" alt="Image failed" width={16} height={16} className="sm:hidden" />
                 </div>
 
-                <Image src="/avion-logo.png" alt="Image failed" width={65} height={30} />
+                <Link href="/"><Image src="/avion-logo.png" alt="Image failed" width={65} height={30} /></Link>
 
                 <div className="flex gap-x-4 max-sm:hidden">
-                    <Image src="/nav-cart.svg" alt="Image-failed" width={16} height={16} />
+                    <Link href="/cart"><Image src="/nav-cart.svg" alt="Image-failed" width={16} height={16} /></Link>
                     <Image src="/nav-user.svg" alt="Image-failed" width={16} height={16} />
                 </div>
             </div>

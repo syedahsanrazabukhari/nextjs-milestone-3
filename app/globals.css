@@ -74,8 +74,12 @@ h6 {
   @apply bg-[--light-gray] text-[--dark-primary] hover:bg-[--border-gray] active:bg-[--light-gray];
 }
 
-.btn-blue{
-  @apply bg-[--dark-primary] text-white hover:bg-[#1E193E] focus:bg-[--dark-primary]
+.btn-blue {
+  @apply bg-[--dark-primary] text-white hover:bg-[#1E193E] active:bg-[--dark-primary];
+}
+
+.btn-opaque {
+  @apply bg-[#f9f9f926] text-white hover:bg-[#F9F9F94D] active:bg-[f9f9f926];
 }
 
 @tailwind utilities;
