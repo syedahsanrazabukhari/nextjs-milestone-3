@@ -9,8 +9,8 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        heroImage: "url('/hero1.png')",
-        SignUp: "url(/SignUp.png)",
+        heroImage: "url('/bg-hero.png')",
+        SignUp: "url(/hero-2.png)",
       },
     },
   },
