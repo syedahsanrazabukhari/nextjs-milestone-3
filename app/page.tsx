@@ -140,7 +140,7 @@ export default function Home() {
 
       {/* fifth section  */}
 
-      <div className='bg-hero-2 bg-cover bg-center h-[373px] w-[390px] lg:h-[444px] lg:w-full lg:pt-[97px] pt-[24px]'>
+      <div className='bg-benefitHome bg-cover bg-center h-[373px] w-[390px] lg:h-[444px] lg:w-full lg:pt-[97px] pt-[24px]'>
         <div className='w-[329px]  lg:w-[494px]  lg:ml-[473px] ml-[24px] flex flex-col gap-5  lg:gap-[30px] '>
           <h2 className='w-full lg:text-[32px] text-[24px] leading-[33.6px] lg:leading-[44.8px] lg:text-center font-normal text-white'>
             Join the club and get the benefits</h2>

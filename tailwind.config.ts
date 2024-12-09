@@ -10,7 +10,7 @@ export default {
     extend: {
       backgroundImage: {
         heroImage: "url('/bg-hero.png')",
-        SignUp: "url(/hero-2.png)",
+        benefitHome: "url(/bg-hero-2.png)",
       },
     },
   },
