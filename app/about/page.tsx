@@ -178,12 +178,12 @@ const About = () => {
                     <div className='space-y-[22px]'>
                         <p>Social links</p>
                         <div className='sm:flex gap-x-6 grid grid-cols-3 gap-y-6 '>
-                            <Image src="/Logo--linkedin.svg" alt="failed" />
-                            <Image src="/Logo--facebook.svg" alt="failed" />
-                            <Image src="/Logo--instagram.svg" alt="failed" />
-                            <Image src="/Logo--skype.svg" alt="failed" />
-                            <Image src="/Logo--twitter.svg" alt="failed" />
-                            <Image src="/Logo--pinterest.svg" alt="failed" />
+                            <Image src="/Logo--linkedin.svg" alt="failed" width={24} height={24} />
+                            <Image src="/Logo--facebook.svg" alt="failed" width={24} height={24} />
+                            <Image src="/Logo--instagram.svg" alt="failed" width={24} height={24} />
+                            <Image src="/Logo--skype.svg" alt="failed" width={24} height={24} />
+                            <Image src="/Logo--twitter.svg" alt="failed" width={24} height={24} />
+                            <Image src="/Logo--pinterest.svg" alt="failed" width={24} height={24} />
                         </div>
                     </div>
                     <div className='space-y-3  max-sm:mt-[50px]' >
