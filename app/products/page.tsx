@@ -1,78 +1,21 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Image from "next/image";
-
-interface ProductCard {
-  name: string;
-  price: number;
-  image: string;
-}
-
-const products: ProductCard[] = [
-  {
-    name: "The Dandy chair",
-    price: 250,
-    image: "/products/product-1.png"
-  },
-  {
-    name: "Rustic Vase Set",
-    price: 155,
-    image: "/products/product-2.png"
-  },
-  {
-    name: "The Silky Vase",
-    price: 125,
-    image: "/products/product-3.png"
-  },
-  {
-    name: "The Lucy Lamp",
-    price: 399,
-    image: "/products/product-4.png"
-  },
-  {
-    name: "The Dandy chair",
-    price: 250,
-    image: "/products/product-5.png"
-  },
-  {
-    name: "Rustic Vase Set",
-    price: 155,
-    image: "/products/product-6.png"
-  },
-  {
-    name: "The Silky Vase",
-    price: 125,
-    image: "/products/product-7.png"
-  },
-  {
-    name: "The Lucy Lamp",
-    price: 399,
-    image: "/products/product-8.png"
-  },
-  {
-    name: "The Dandy chair",
-    price: 250,
-    image: "/products/product-1.png"
-  },
-  {
-    name: "Rustic Vase Set",
-    price: 155,
-    image: "/products/product-2.png"
-  },
-  {
-    name: "The Silky Vase",
-    price: 125,
-    image: "/products/product-3.png"
-  },
-  {
-    name: "The Lucy Lamp",
-    price: 399,
-    image: "/products/product-4.png"
-  }
-];
+import { client } from "@/sanity/lib/client";
+import Link from "next/link";
 
 
-export default function Home() {
+
+export default async function Home() {
+  const data = await client.fetch(`*[_type == "Product"]{
+    id,
+    productName,
+    Productprice, 
+    "imageUrl": ProductImage.asset->url  
+  }`);
+
+
+
   return (
     <>
       <Navbar />
@@ -123,19 +66,32 @@ export default function Home() {
 
 
         {/* Products */}
-        <section className="px-6 sm:px-20 py-7 sm:pb-10 space-y-10 sm:space-y-12">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 sm:gap-x-5 gap-y-5 sm:gap-y-12">
-            {products.map((product: ProductCard, i: number) => (
-              <div key={i}>
-                <Image src={product.image} alt="Failed to load" width={305} height={375} />
-                <h4 className="mt-6">{product.name}</h4>
-                <p className="body-lg mt-2">£{product.price}</p>
-              </div>
+        <div className='w-390 lg:w-full pt-6 pb-7 px-6 lg:px-[80px]'>
+          <div className='grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-[15px]'>
+            {data.map((product: any) => (
+              <Link href={`/products/${product.id}`}
+                key={product.id}
+                className='flex flex-col gap-2 lg:gap-6 text-[#2A254B] border shadow-xl transition-transform duration-300 hover:z-10 hover:scale-105 p-4 sm:p-6 rounded-lg'
+              >
+                {/* Render image */}
+                <Image
+                  src={product.imageUrl || 'default-image.jpg'} // Add fallback for missing image
+                  alt={product.productName}
+                  width={305}
+                  height={375}
+                  className='w-full'
+                />
+                <h4 className='  text-[14px]  lg:text-[20px] leading-5 lg:leading-7 font-normal'>{product.productName}</h4>
+                <p className=' text-[12px]    lg:text-[18px] leading-5 lg:leading-7 font-normal'>
+                  {product.Productprice ? `£${product.Productprice}` : 'Price not available'}
+                </p>
+              </Link>
             ))}
           </div>
-
-          <button className="btn btn-secondary max-sm:w-full sm:mx-auto sm:block">View collection</button>
-        </section>
+          <button className='py-4 px-[100px] mt-10 lg:px-8 mx-auto lg:mt-[48px] lg:mb-3 flex lg:gap-5 gap-[10px] items-center text-[16px] leading-6 font-normal bg-[#F9F9F9] text-[#2A254B]'>
+            View collection
+          </button>
+        </div>
       </main>
 
 

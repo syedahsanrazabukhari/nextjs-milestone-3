@@ -44,9 +44,9 @@ export default function Footer() {
                 <div className="space-y-4 col-span-2 max-sm:mt-10">
                     <h5>Join our mailing list</h5>
 
-                    <form className="sm:w-[627px] flex">
+                    <form className=" flex">
                         <input type="email" placeholder="your@email.com" className="py-4 px-6 sm:px-8 bg-[#ffffff26] grow" />
-                        <button type="submit" className="btn btn-primary">Sign up</button>
+                        <button type="submit" className="btn btn-primary text-nowrap">Sign up</button>
                     </form>
                 </div>
             </section>

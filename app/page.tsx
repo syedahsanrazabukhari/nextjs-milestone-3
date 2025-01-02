@@ -1,11 +1,21 @@
-import React from 'react'
+import { client } from "@/sanity/lib/client";
+import React, { use } from 'react'
 import { IoCheckmarkCircle } from "react-icons/io5";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Home() {
+export default async function Home() {
+  const data = await client.fetch(`*[_type == "Product"]{
+    id,
+  productName,
+  Productprice, 
+  "imageUrl": ProductImage.asset->url  
+}`);
+
+
+
   return (
     <>
       <Navbar />
@@ -38,9 +48,6 @@ export default function Home() {
       </div>
 
       {/* our services */}
-
-
-
       <div className='px-[24px] py-[49px] lg:py-[80px] lg:px-[82px]'>
         <h4 className='lg:text-center font-normal lg:text-[24px] tex-[20px]  lg:leading-[33.6px] leading-7 text-[#2A254B]'>What makes our brand different</h4>
 
@@ -85,37 +92,32 @@ export default function Home() {
 
       {/* third section */}
       <div className='w-390 lg:w-full pt-6 pb-7 px-6 lg:px-[80px]'>
-        <div className=' grid grid-cols-2 grid-rows-2 gap-[15px] lg:flex lg:gap-5 '>
-       
-
-          <div className=' flex flex-col gap-2 lg:gap-6 text-[#2A254B]'>
-            <Image src="home-product-1.svg" alt='List Card1' width={100} height={100} className='w-[163px] h-[201px] lg:w-[305px] lg:h-[375px]'></Image>
-            <h4 className='text-[20px] leading-7 font-normal'>Rustic Vase Set</h4>
-            <p className='text-[18px] leading-7 font-normal'>£399</p>
-          </div>
-       
-
-          <div className=' flex flex-col gap-2 lg:gap-6 text-[#2A254B]'>
-            <Image src="home-product-2.svg" alt='List Card2' width={163} height={201} className='w-[163px] h-[201px] lg:w-[305px] lg:h-[375px]'></Image>
-            <h4 className='text-[20px] leading-7 font-normal'>Rustic Vase Set</h4>
-            <p className='text-[18px] leading-7 font-normal'>£399</p>
-          </div>
-
-          <div className=' flex flex-col gap-2 lg:gap-6 text-[#2A254B]'>
-            <Image src="home-product-3.svg" alt='List Card3' width={163} height={201} className='w-[163px] h-[201px] lg:w-[305px] lg:h-[375px]'></Image>
-            <h4 className='text-[20px] leading-7 font-normal'>Rustic Vase Set</h4>
-            <p className='text-[18px] leading-7 font-normal'>£399</p>
-          </div>  
-
-          <div className=' flex flex-col gap-2 lg:gap-6 text-[#2A254B]'>
-            <Image src="home-product-4.svg" alt='List Card4' width={163} height={201} className='w-[163px] h-[201px] lg:w-[305px] lg:h-[375px]'></Image>
-            <h4 className='text-[20px] leading-7 font-normal'>Rustic Vase Set</h4>
-            <p className='text-[18px] leading-7 font-normal'>£399</p>
-          </div>
+        <div className='grid grid-cols-2 grid-rows-2 gap-[15px] lg:flex lg:gap-5'>
+          {data.slice(0, 4).map((product: any) => (
+            <div
+              key={product._id}
+              className='flex flex-col gap-2 lg:gap-6 text-[#2A254B] border shadow-xl transition-transform duration-300 hover:z-10 hover:scale-105 p-4 sm:p-6 rounded-lg'
+            >
+              {/* Render image */}
+              <Image
+                src={product.imageUrl || 'default-image.jpg'} // Add fallback for missing image
+                alt={product.productName}
+                width={100}
+                height={100}
+                className='w-[163px] h-[201px] lg:w-[305px] lg:h-[375px]'
+              />
+              <h4 className='text-[20px] leading-7 font-normal'>{product.productName}</h4>
+              <p className='text-[18px] leading-7 font-normal'>
+                {product.Productprice ? `£${product.Productprice}` : 'Price not available'}
+              </p>
+            </div>
+          ))}
         </div>
-        <Link href="/products"> <button className='py-4 px-[100px] mt-10 lg:px-8  mx-auto lg:mt-[48px] lg:mb-3 flex lg:gap-5 gap-[10px] items-center text-[16px] leading-6 font-normal  bg-[#F9F9F9] text-[#2A254B] '>
-          View collection
-        </button></Link>
+        <Link href="/products">
+          <button className='py-4 px-[100px] mt-10 lg:px-8 mx-auto lg:mt-[48px] lg:mb-3 flex lg:gap-5 gap-[10px] items-center text-[16px] leading-6 font-normal bg-[#F9F9F9] text-[#2A254B]'>
+            View collection
+          </button>
+        </Link>
       </div>
 
       {/* fourth section */}
