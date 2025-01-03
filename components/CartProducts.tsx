@@ -33,12 +33,12 @@ const CartProducts = () => {
 
 
     const increment = (i: number) => {
-        let temp: any[] = products ? [...products] : [];
+        const temp: any[] = products ? [...products] : [];
         temp[i].quantity && temp[i].quantity++;
         setProducts(temp);
     };
     const decrement = (i: number) => {
-        let temp: any[] = products ? [...products] : [];
+        const temp: any[] = products ? [...products] : [];
         (temp[i].quantity && temp[i].quantity > 1) && temp[i].quantity--;
         setProducts(temp);
     };
@@ -59,7 +59,7 @@ const CartProducts = () => {
                 </thead>
                 <tbody>
                     {products?.map((product: any, i: any) => (
-                        <tr className="sm:*:pt-5">
+                        <tr className="sm:*:pt-5" key={product.id}>
                             <td>
                                 <div className="flex gap-x-[21px] sm:items-center">
                                     <Image src={product.imageUrl} alt="Failed to load" width={64} height={64} className="size-16" />

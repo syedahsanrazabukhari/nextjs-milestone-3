@@ -81,8 +81,8 @@ export default async function Home() {
                   height={375}
                   className='w-full'
                 />
-                <h4 className='  text-[14px]  lg:text-[20px] leading-5 lg:leading-7 font-normal'>{product.productName}</h4>
-                <p className=' text-[12px]    lg:text-[18px] leading-5 lg:leading-7 font-normal'>
+                <h4 className='text-[14px] lg:text-[20px] leading-5 lg:leading-7 font-normal'>{product.productName}</h4>
+                <p className=' text-[12px] lg:text-[18px] leading-5 lg:leading-7 font-normal'>
                   {product.Productprice ? `£${product.Productprice}` : 'Price not available'}
                 </p>
               </Link>

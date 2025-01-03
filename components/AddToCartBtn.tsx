@@ -14,7 +14,7 @@ const AddToCartBtn = ({ id }: { id: number }) => {
             cart = JSON.parse(localStorage.getItem("cart")!);
         }
         if (Array.isArray(cart)) {
-            let isProductPresent = cart.find((item: number) => item === id);
+            const isProductPresent = cart.find((item: number) => item === id);
             isProductPresent ? alert("This product is already in cart") : cart.push(id);
         }
         localStorage.setItem("cart", JSON.stringify(cart));
