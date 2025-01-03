@@ -94,10 +94,7 @@ export default async function Home() {
       <div className='w-390 lg:w-full pt-6 pb-7 px-6 lg:px-[80px]'>
         <div className='grid grid-cols-2 grid-rows-2 gap-[15px] lg:flex lg:gap-5'>
           {data.slice(0, 4).map((product: any) => (
-            <div
-              key={product._id}
-              className='flex flex-col gap-2 lg:gap-6 text-[#2A254B] border shadow-xl transition-transform duration-300 hover:z-10 hover:scale-105 p-4 sm:p-6 rounded-lg'
-            >
+            <Link key={product._id} href={`/products/${product.id}`} className='flex flex-col gap-2 lg:gap-6 text-[#2A254B] border shadow-xl transition-transform duration-300 hover:z-10 hover:scale-105 p-4 sm:p-6 rounded-lg'>
               <Image
                 src={product.imageUrl || 'default-image.jpg'}
                 alt={product.productName}
@@ -109,9 +106,10 @@ export default async function Home() {
               <p className='text-[18px] leading-7 font-normal'>
                 {product.Productprice ? `£${product.Productprice}` : 'Price not available'}
               </p>
-            </div>
+            </Link>
           ))}
         </div>
+
         <Link href="/products">
           <button className='py-4 px-[100px] mt-10 lg:px-8 mx-auto lg:mt-[48px] lg:mb-3 flex lg:gap-5 gap-[10px] items-center text-[16px] leading-6 font-normal bg-[#F9F9F9] text-[#2A254B]'>
             View collection

@@ -1,12 +1,28 @@
 "use client"; // Ensure this is the first line
-
+import { client } from "@/sanity/lib/client";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-export default function Cart() {
+export default async function Cart() {
     const [quantity, setQuantity] = useState(1);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await client.fetch(`*[_type == "Product"]{
+                id,
+                productName,
+                Productprice, 
+                "imageUrl": ProductImage.asset->url  
+            }`);
+            console.log(data);
+        }
+
+        fetchData();
+
+    }, [])
+
 
     const increment = () => {
         setQuantity(quantity + 1);
@@ -22,7 +38,7 @@ export default function Cart() {
         setQuantity(Number(e.target.value));
     };
 
-    const products = { price: 85 }; 
+    const products = { price: 85 };
 
     return (
         <>
@@ -58,7 +74,7 @@ export default function Cart() {
                                         <button onClick={decrement} className="text-black">-</button>
                                     </div>
                                 </td>
-                                <td className="max-sm:hidden">{quantity*products.price}</td>
+                                <td className="max-sm:hidden">{quantity * products.price}</td>
                             </tr>
                         </tbody>
                     </table>
