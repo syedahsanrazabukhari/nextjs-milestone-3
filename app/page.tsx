@@ -98,9 +98,8 @@ export default async function Home() {
               key={product._id}
               className='flex flex-col gap-2 lg:gap-6 text-[#2A254B] border shadow-xl transition-transform duration-300 hover:z-10 hover:scale-105 p-4 sm:p-6 rounded-lg'
             >
-              {/* Render image */}
               <Image
-                src={product.imageUrl || 'default-image.jpg'} // Add fallback for missing image
+                src={product.imageUrl || 'default-image.jpg'}
                 alt={product.productName}
                 width={100}
                 height={100}
