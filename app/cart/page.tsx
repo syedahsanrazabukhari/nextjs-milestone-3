@@ -1,28 +1,9 @@
-"use client"; // Ensure this is the first line
-import { client } from "@/sanity/lib/client";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+"use client";  // This component is client-side
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default async function Cart() {
+export default function Cart() {
     const [quantity, setQuantity] = useState(1);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const data = await client.fetch(`*[_type == "Product"]{
-                id,
-                productName,
-                Productprice, 
-                "imageUrl": ProductImage.asset->url  
-            }`);
-            console.log(data);
-        }
-
-        fetchData();
-
-    }, [])
-
 
     const increment = () => {
         setQuantity(quantity + 1);
@@ -32,17 +13,10 @@ export default async function Cart() {
         setQuantity(quantity > 1 ? quantity - 1 : 1); // Prevent negative quantities
     };
 
-    interface QuantityEvent extends React.ChangeEvent<HTMLInputElement> { }
-
-    const handleQuantity = (e: QuantityEvent) => {
-        setQuantity(Number(e.target.value));
-    };
-
     const products = { price: 85 };
 
     return (
         <>
-            <Navbar />
             <main>
                 <section className="pt-9 sm:pt-16 pl-6 sm:pl-[188px] pr-6 sm:pr-[193px] bg-[--light-gray]">
                     <h1 className="max-sm:text-[24px]">Your shopping cart</h1>
@@ -63,15 +37,22 @@ export default async function Cart() {
                                         <div className="space-y-2 max-sm:mt-[19px]">
                                             <h4 className="text-[16px] leading-[20px]">Graystone vase</h4>
                                             <p className="text-sm w-[179px]">A timeless ceramic vase with a tri color grey glaze.</p>
+                                            <div>
                                             <p>£85</p>
+                                            <div className="py-3 px-4 sm:hidden flex items-center gap-x-8">
+                                                <button onClick={increment} className="text-black ">+</button>
+                                                <span>{quantity}</span>
+                                                <button onClick={decrement} className="text-black ">-</button>
+                                            </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </td>
                                 <td>
                                     <div className="py-3 px-4 max-sm:hidden flex items-center gap-x-8">
-                                        <button onClick={increment} className="text-black">+</button>
+                                        <button onClick={increment} className="text-black ">+</button>
                                         <span>{quantity}</span>
-                                        <button onClick={decrement} className="text-black">-</button>
+                                        <button onClick={decrement} className="text-black ">-</button>
                                     </div>
                                 </td>
                                 <td className="max-sm:hidden">{quantity * products.price}</td>
@@ -97,7 +78,6 @@ export default async function Cart() {
                     </div>
                 </section>
             </main>
-            <Footer />
         </>
     );
 }
