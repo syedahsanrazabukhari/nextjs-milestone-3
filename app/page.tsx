@@ -1,5 +1,4 @@
 import { client } from "@/sanity/lib/client";
-import React, { use } from 'react'
 import { IoCheckmarkCircle } from "react-icons/io5";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
