@@ -4,9 +4,12 @@ import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import AddToCartBtn from "@/components/AddToCartBtn";
 
+interface Params {
+    params: Promise<{ productId: string }>
+};
 
-export default async function details({ params }: { params: { productId: string } }) {
-    const { productId } = params;
+export default async function details({ params }: Params) {
+    const { productId } = await params;
     const product = await client.fetch(`*[_type == "Product"  && id == ${productId}]{
     id,
     productName,
