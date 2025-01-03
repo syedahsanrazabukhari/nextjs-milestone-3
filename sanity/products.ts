@@ -15,6 +15,11 @@ export default {
             title: 'Product Name'
         },
         {
+            name: 'Productdetail',
+            type: 'string',
+            title: 'Product detail'
+        },
+        {
             name: 'Productprice',
             type: 'string',
             title: 'Product Price'
