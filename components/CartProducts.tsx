@@ -27,10 +27,9 @@ const CartProducts = () => {
             } else {
                 alert('Cart is empty');
             }
-        }
+        };
         fetchProducts();
-    }, [])
-
+    }, []);
 
     const increment = (i: number) => {
         const temp: any[] = products ? [...products] : [];
@@ -45,7 +44,12 @@ const CartProducts = () => {
 
     const totalAmount = (): number => {
         return products?.reduce((acc, product) => acc + product.quantity * product.Productprice, 0);
-    }
+    };
+
+    const handleCheckout = () => {
+        localStorage.removeItem('cart');
+        setProducts([]);
+    };
 
     return (
         <>
@@ -100,13 +104,16 @@ const CartProducts = () => {
                     </p>
                 </div>
                 <Link href="/">
-                    <button type="submit" className="bg-[--dark-primary] max-sm:w-full block w-fit ml-auto text-white py-4 mt-8 sm:mt-4 px-[117px] sm:px-[48px]">
-                        Go to checkout
+                    <button
+                        type="button"
+                        onClick={handleCheckout}
+                        className="bg-[--dark-primary] max-sm:w-full block w-fit ml-auto text-white py-4 mt-8 sm:mt-4 px-[117px] sm:px-[48px]"
+                    > Go to checkout
                     </button>
                 </Link>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default CartProducts
+export default CartProducts;
