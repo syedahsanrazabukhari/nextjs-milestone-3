@@ -90,7 +90,7 @@ export default async function Home() {
 
 
       {/* third section */}
-      <div className='w-391 lg:w-full pt-6 pb-7 px-6 lg:px-[80px]'>
+      <div className='w-390 lg:w-full pt-6 pb-7 px-6 lg:px-[80px]'>
         <div className='grid grid-cols-2 grid-rows-2 gap-[15px] lg:flex lg:gap-5'>
           {data.slice(0, 4).map((product: any) => (
             <Link key={product._id} href={`/products/${product.id}`} className='flex flex-col gap-2 lg:gap-6 text-[#2A254B] border shadow-xl transition-transform duration-300 hover:z-10 hover:scale-105 p-4 sm:p-6 rounded-lg'>
